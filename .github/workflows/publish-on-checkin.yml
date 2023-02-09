@@ -1,9 +1,5 @@
 name: Publish and deploy to GitHub Pages
 
-defaults:
-  run:
-    working-directory: ./
-
 on:
   push:
     branches:
