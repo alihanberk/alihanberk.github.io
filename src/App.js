@@ -63,7 +63,9 @@ function App() {
 
   return (
     <div className="App">
-      <input placeholder="05534631945" value={tel} onChange={e => setTel(e.target.value)}></input>
+      <br />
+      <label style={{ display: "block" }}>Kredim Üyesi Tel No: (Sıfır ile başlasın!!)</label>
+      <input style={{ display: "inline-block" }} placeholder="Mesela 05534631945" value={tel} onChange={e => setTel(e.target.value)}></input>
       <button onClick={getHopiUrl}> İpek'e Url Oluştur</button>
       <ul style={{ display: "inline-flex" }}> Bazı kullanıcılar --->
         <li style={{ cursor: "pointer", marginLeft: 40 }} onClick={e => setTel("05374055580")}>Sezer</li>
@@ -80,7 +82,7 @@ function App() {
           <p><a href={hopi.url}>Hopi'den gidiyomuş gibi git</a></p>
         </div>
       }
-    </div>
+    </div >
   );
 }
 
