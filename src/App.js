@@ -59,6 +59,18 @@ function App() {
       url: `https://test_member.kredim.com.tr?mid=${getMemberGsmMemberId.resultObject}&mlt=${memberLoginToken.resultObject.accessToken}`
     });
     setLoading(false);
+  };
+
+  const getFailToken = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setHopi({
+        tel,
+        mid: "e30f4fed-d56c-451a-82eb-22844574vjee",
+        url: `https://test_member.kredim.com.tr?mid=e30f4fed-d56c-451a-82eb-22844574vjee&mlt=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9oYXNoIjoiekFKQnpkZ2JyWnpvRVRUUWtUZHVtTHp3aStoaWdzY0owQ1Q4V0lic0o5ZGNLcWFuczdzUjZIdGVMa0ZVZmd2SSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2RucyI6Ijo6ZmZmZjoxNzIuMjAuMTguMTAxIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJZaGFBc2UweXhkdE5sK1ZDNzZLejM4aTdHVkZuZHVjcStjRm5Nc2JVZGtaTndIWVl1ZDltaEhaNDBuUzU4bVE3RVluSGpMUVVWT3RmeFlYMlQ4MmpsRWtqODJ3NGZXMlIwbVRSMzNSck1MQT0iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA5LzA5L2lkZW50aXR5L2NsYWltcy9hY3RvciI6IlNxalpZemJlVkVWSTI3SkwwTjdMODNoWEF4bFQrekFpLzJwTlg1Z1ByWFNDT2NMYllGOTI5aW1LTjV1NFFjRkNOVE5OQkFXWGtzQ2lCZVhlenlhNnJZWGZGQ2RQajIxZkxRZER0dUdENW40PSIsImV4cCI6MTY3NTk1Njk2MywiaXNzIjoiaHR0cDovL2FwaS5rcmVkaW0uY29tLnRyIiwiYXVkIjoiaHR0cDovL2FwaS5rcmVkaW0uY29tLnRyIn0.CxS6dHKEAgQ8eYnHzE9kor3Mv5VxKXvvqPxVMF8eLk1`
+      });
+      setLoading(false);
+    }, 1000);
   }
 
   return (
@@ -67,6 +79,7 @@ function App() {
       <label style={{ display: "block" }}>Kredim Üyesi Tel No: (Sıfır ile başlasın!!)</label>
       <input style={{ display: "inline-block" }} placeholder="Mesela 05534631945" value={tel} onChange={e => setTel(e.target.value)}></input>
       <button onClick={getHopiUrl}> İpek'e Url Oluştur</button>
+      <button onClick={getFailToken}> Hatalı token Üret</button>
       <ul style={{ display: "inline-flex" }}> Bazı kullanıcılar --->
         <li style={{ cursor: "pointer", marginLeft: 40 }} onClick={e => setTel("05374055580")}>Sezer</li>
         <li style={{ cursor: "pointer", marginLeft: 40 }} onClick={e => setTel("05422253425")}>Köksal</li>
