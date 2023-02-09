@@ -4,7 +4,7 @@ function App() {
   const [hopi, setHopi] = useState(null);
   const [loading, setLoading] = useState(false);
   const [tel, setTel] = useState("");
-  
+
 
   const getHopiUrl = async () => {
     setHopi(null);
@@ -77,6 +77,7 @@ function App() {
           <p><b>Telefon numarası </b> <label style={{ display: "block" }}>{hopi.tel}</label></p>
           <p><b>MemberId </b> <label style={{ display: "block" }}>{hopi.mid}</label></p>
           <p><b>Url </b> <label style={{ display: "block" }}>{hopi.url}</label></p>
+          <p><a href={hopi.url}>Hopi'den gidiyomuş gibi git</a></p>
         </div>
       }
     </div>
