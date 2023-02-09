@@ -3,12 +3,24 @@ import { useState } from "react";
 function App() {
   const [hopi, setHopi] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [tel, setTel] = useState("");
 
 
   const getHopiUrl = async () => {
     setHopi(null);
     setLoading(true);
+    setError(false)
+
+    if (!tel) {
+      setTimeout(() => {
+        setLoading(false);
+        setError("Yav numara girmemişin");
+      }, 1000);
+      return;
+    }
+
+
     const url = "https://test_api.kredim.com.tr/api/v1";
     const partnerReferanceId = "CFBF85FD-7BDC-411A-8782-47C6270190D5";
 
@@ -86,6 +98,7 @@ function App() {
         <li style={{ cursor: "pointer", marginLeft: 40 }} onClick={e => setTel("05333918285")}>Aslı</li>
       </ul>
       {loading && <p>Yükeniyo bekle bi</p>}
+      {error && <p>{error}</p>}
       {
         hopi &&
         <div style={{ maxWidth: "85%", wordWrap: "break-word" }}>
