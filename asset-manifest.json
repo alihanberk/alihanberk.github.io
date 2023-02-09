@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.ff298dfa.js",
-    "index.html": "/index.html",
-    "main.ff298dfa.js.map": "/static/js/main.ff298dfa.js.map"
+    "main.js": "/hopi/static/js/main.ff298dfa.js",
+    "index.html": "/hopi/index.html",
+    "main.ff298dfa.js.map": "/hopi/static/js/main.ff298dfa.js.map"
   },
   "entrypoints": [
     "static/js/main.ff298dfa.js"
