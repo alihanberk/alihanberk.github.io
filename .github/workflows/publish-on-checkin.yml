@@ -2,7 +2,7 @@ name: Publish and deploy to GitHub Pages
 
 defaults:
   run:
-    working-directory: ./catalog
+    working-directory: ./
 
 on:
   push:
