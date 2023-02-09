@@ -1,26 +1,21 @@
-name: Publish and deploy to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main
-
+name: Build and Deploy
+on: [push]
+permissions:
+  contents: write
 jobs:
-  build_and_publish_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
-    name: Build and Publish Job
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run publish
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          folder: build # The folder the action should deploy.
