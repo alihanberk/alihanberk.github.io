@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { v4 } from "uuid";
 
 function App() {
   const [hopi, setHopi] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [tel, setTel] = useState("");
-
+  const url = "https://test_api.kredim.com.tr/api/v1";
+  const partnerReferanceId = "CFBF85FD-7BDC-411A-8782-47C6270190D5";
 
   const getHopiUrl = async () => {
     setHopi(null);
@@ -14,15 +16,12 @@ function App() {
 
     if (!tel) {
       setTimeout(() => {
+
         setLoading(false);
         setError("Yav numara girmemişin");
       }, 1000);
       return;
     }
-
-
-    const url = "https://test_api.kredim.com.tr/api/v1";
-    const partnerReferanceId = "CFBF85FD-7BDC-411A-8782-47C6270190D5";
 
     const partnerLogin = await fetch(`${url}/Partner/login`, {
       method: "POST",
@@ -97,6 +96,8 @@ function App() {
         <li style={{ cursor: "pointer", marginLeft: 40 }} onClick={e => setTel("05422253425")}>Köksal</li>
         <li style={{ cursor: "pointer", marginLeft: 40 }} onClick={e => setTel("05333918285")}>Aslı</li>
       </ul>
+      <p><a href={`https://test_member.kredim.com.tr?aid=${v4()}`}>Random AccountId ile Bilgi Toplama Ekranı'nı aç</a></p>
+
       {loading && <p>Yükeniyo bekle bi</p>}
       {error && <p>{error}</p>}
       {
