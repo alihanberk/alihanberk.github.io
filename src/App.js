@@ -139,7 +139,7 @@ function App() {
         </div>
       }
       {
-        account &&
+        account.url &&
         <div style={{ maxWidth: "85%", wordWrap: "break-word" }}>
           <p><b>AccountId </b> <label style={{ display: "block" }}>{account.id}</label></p>
           <p><b>Url </b> <label style={{ display: "block" }}>{account.url}</label></p>
